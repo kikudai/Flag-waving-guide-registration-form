@@ -7,22 +7,19 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
         <link rel="stylesheet" href="/flag-waving-guide-registration-form/style.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
         <script src="/flag-waving-guide-registration-form/main.js"></script>
     </head>
     <body>
         <h1>[安全指導]旗振り場所・対応者数リスト</h1>
-        <div class="image-container">
-            <a href="/flag-waving-guide-registration-form/map.jpg" data-lightbox="map-1" data-title="map"><img src="/flag-waving-guide-registration-form/map.jpg" alt="map" class="responsive-map"></a>
-            <div class="overlay">
-                <i class="overlay-icon">🔍</i>
-            </div>
-        </div>
+        <img id="clickableImage" src="/flag-waving-guide-registration-form/map.jpg" alt="map">
         <select id="dateFilter">
             <!-- JavaScriptによってオプションが動的に追加される -->
         </select>
         <div id="spreadsheetData" class="data-list">
             <!-- JavaScriptによって動的にリストアイテムが追加される -->
+        </div>
+        <div id="imageOverlay">
+            <img id="fullSizeImage">
         </div>
     </body>
 </html>

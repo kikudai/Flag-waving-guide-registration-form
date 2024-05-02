@@ -9,6 +9,7 @@ $(document).ready(function() {
                 fetchDataAndDisplay().then(() => {
                     var initialDate = $('#dateFilter').val();
                     filterAndDisplayData(initialDate);
+                    setupImageClickHandler(); // 画像クリックハンドラをセットアップ
                 });
             });
         });
@@ -154,6 +155,24 @@ $(document).ready(function() {
         });
 
         return html;
+    }
+
+    function setupImageClickHandler() {
+        $('#clickableImage').click(function() {
+            // 画像のソースを取得
+            var src = $(this).attr('src');
+            // オーバーレイ内の画像にソースを設定
+            $('#fullSizeImage').attr('src', src);
+            // オーバーレイを表示
+            $('#imageOverlay').show();
+        });
+    
+        // オーバーレイをクリックで非表示にする
+        $('#imageOverlay').click(function(e) {
+            if (e.target.id === 'imageOverlay' || e.target.id === 'fullSizeImage') {
+                $(this).hide();
+            }
+        });
     }
 
     // 全体の初期化を行う
