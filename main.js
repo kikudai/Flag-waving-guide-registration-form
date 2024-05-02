@@ -18,6 +18,8 @@ $(document).ready(function() {
     function initializeDateDropdown() {
         var today = new Date();
         var dropdownFilled = $.Deferred();
+        $('#dateFilter').before('<label class="selectbox"></label>');
+        $('.selectbox').append($('#dateFilter'));
         for (var i = 0; i < 7; i++) {
             var futureDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + i);
             var formattedDate = formatDate(futureDate);

@@ -91,6 +91,38 @@ body {
 .green { background: green; }
 .red { background: red; }
 
+.selectbox {
+    width: 100%; /* コンテナの幅に合わせて調整 */
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+}
+
+.selectbox::after {
+    position: absolute;
+    right: 15px;
+    width: 15px;
+    height: 12px;
+    top: 30%;
+    background-color: #535353;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    content: '';
+    pointer-events: none;
+}
+
+.selectbox select {
+    appearance: none;
+    min-width: 230px;
+    height: 2.8em;
+    padding: .4em calc(.8em + 30px) .4em .8em;
+    border: 1px solid #d0d0d0;
+    border-radius: 3px;
+    background-color: #fff;
+    color: #333333;
+    font-size: 1em;
+    cursor: pointer;
+}
+
 #dateFilter {
     width: 100%; /* コンテナの幅に合わせて調整 */
     padding: 16px; /* デフォルトのパディング */
@@ -103,6 +135,7 @@ body {
     cursor: pointer; /* カーソルをポインタに設定 */
     outline: none; /* アウトラインを消去 */
     margin-bottom: 30px;
+    height: auto;
 }
 
 #dateFilter:hover {
@@ -165,32 +198,63 @@ img.responsive-map {
     height: auto; /* 高さを自動で調整し、アスペクト比を維持 */
 }
 
-@media (max-width: 400px) {
-    .data-location {
-        font-size: 5.5vw;
+/* 既存のスマートフォン用のスタイルに追加 */
+@media (min-width: 768px) {
+    body {
+        padding: 40px; /* PCでは内側の余白を広く取る */
     }
 
-    .data-time-slot,
-    .data-date {
-        font-size: 5vw;
+    .data-list h2 {
+        font-size: 1.5em; /* PCでは見出しを大きくする */
+    }
+
+    .data-item {
+        padding: 15px; /* PCでのタップしやすさを考慮し余白を広げる */
+        margin-bottom: 15px; /* アイテム間の距離を広げる */
+    }
+
+    .data-location, .data-time-slot, .data-date, .data-count {
+        font-size: 1em; /* 文字サイズを固定値で指定 */
     }
 
     .data-count {
-        font-size: 6vw;
-        min-width: 16vw;
+        font-size: 1.5em; /* 数字のサイズを大きくして目立たせる */
+        padding: 12px 0px 12px 40px; /* タップしやすいようにパディングを増やす */
     }
-}
 
-@media (max-width: 768px) {
-    #dateFilter {
-        font-size: 0.9rem; /* タブレットや小さなデバイスでのフォントサイズ */
-        padding: 8px 10px; /* タブレットや小さなデバイスでのパディング調整 */
+    .data-count-area {
+        width: 25%; /* カウントエリアの幅を調整 */
+        height: 30px; /* カウントエリアの高さを固定値に */
     }
-}
 
-@media (max-width: 480px) {
-    #dateFilter {
-        font-size: 0.8rem; /* スマートフォンでのフォントサイズ */
-        padding: 8px; /* スマートフォンでのパディング調整 */
+    .indicator {
+        height: 40px; /* インジケータの高さを固定値に */
+        width: 10px; /* インジケータの幅を固定値に */
     }
+
+    .unit {
+        font-size: 1em; /* ユニットのフォントサイズを固定値に */
+    }
+
+    .selectbox select {
+        height: 3.2em; /* セレクトボックスの高さを調整 */
+        font-size: 1.2em; /* セレクトボックスのフォントサイズを調整 */
+    }
+
+    #dateFilter {
+        font-size: 1em; /* フォントサイズを固定値に調整 */
+    }
+
+    .image-container img {
+        border: 10px solid #ffffff; /* ボーダーの幅を調整 */
+    }
+
+    .overlay-icon {
+        font-size: 60px; /* オーバーレイのアイコンサイズを大きくする */
+    }
+
+    .selectbox::after {
+        top: 26%;
+    }
+    
 }
