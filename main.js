@@ -3,41 +3,47 @@ $(document).ready(function() {
     var locationsTimeSlots = []; // 場所と時間帯のリスト
 
     // アプリの初期化を行う関数
-    function initialize() {
-        initializeDateDropdown().then(() => {
-            fetchLocationsAndTimeSlots().then(() => {
-                fetchDataAndDisplay().then(() => {
-                    var initialDate = $('#dateFilter').val();
-                    filterAndDisplayData(initialDate);
-                });
-            });
-        });
+    async function initialize() {
+        try {
+            console.log('Initializing the app...');
+            await initializeDateDropdown(); // 日付ドロップダウンの初期化
+            await fetchLocationsAndTimeSlots(); // 場所と時間帯のデータ取得
+            await fetchDataAndDisplay(); // スプレッドシートからデータを取得して表示
+
+            var initialDate = $('#dateFilter').val();
+            filterAndDisplayData(initialDate); // 初期日付でデータをフィルタリングして表示
+            setupImageClickHandler(); // 画像クリックハンドラをセットアップ
+        } catch (error) {
+            console.error('Error initializing the app:', error);
+            // エラー処理のコードをここに追加することができます。
+            // 例えば、ユーザーにエラーメッセージを表示するなど。
+        }
     }
 
     // 日付プルダウンメニューを初期化
     function initializeDateDropdown() {
         var today = new Date();
-        var dropdownFilled = $.Deferred();
-        $('#dateFilter').before('<label class="selectbox"></label>');
-        $('.selectbox').append($('#dateFilter'));
-        for (var i = 0; i < 7; i++) {
-            var futureDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + i);
-            var formattedDate = formatDate(futureDate);
-            var optionText = `${formattedDate} (${daysOfWeek[futureDate.getDay()]})`;
-            $('#dateFilter').append(new Option(optionText, formattedDate));
-        }
-        dropdownFilled.resolve();
-        return dropdownFilled.promise();
+    
+        flatpickr("#dateFilter", {
+            dateFormat: "Y/m/d", // 内部的に使用するフォーマット
+            defaultDate: today,
+            minDate: today,
+            altInput: true, // 代替のインプットを有効にする
+            altFormat: "Y/m/d (D)", // 表示用のフォーマット ('D'は曜日を表す)
+            altInputClass: 'calendar-input', // 代替インプットに適用するカスタムクラス
+            locale: {
+                firstDayOfWeek: 0, // 日曜始まりに設定
+                weekdays: {
+                    shorthand: ['日', '月', '火', '水', '木', '金', '土'], // 曜日の短縮形
+                    longhand: ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'] // 曜日の完全な名前
+                }
+            },
+            onChange: function(selectedDates, dateStr, instance) {
+                filterAndDisplayData(dateStr); // 日付が変更されたらフィルタリングと表示を更新
+            }
+        });
     }
-
-    // 日付をフォーマットするユーティリティ関数
-    function formatDate(date) {
-        var year = date.getFullYear();
-        var month = date.getMonth() + 1;
-        var day = date.getDate();
-        return `${year}/${month < 10 ? '0' + month : month}/${day < 10 ? '0' + day : day}`;
-    }
-
+    
     // 場所と時間帯のマスタデータを取得
     function fetchLocationsAndTimeSlots() {
         var range = 'locations!A1:C22';
@@ -154,6 +160,24 @@ $(document).ready(function() {
         });
 
         return html;
+    }
+
+    function setupImageClickHandler() {
+        $('#clickableImage').click(function() {
+            // 画像のソースを取得
+            var src = $(this).attr('src');
+            // オーバーレイ内の画像にソースを設定
+            $('#fullSizeImage').attr('src', src);
+            // オーバーレイを表示
+            $('#imageOverlay').show();
+        });
+    
+        // オーバーレイをクリックで非表示にする
+        $('#imageOverlay').click(function(e) {
+            if (e.target.id === 'imageOverlay' || e.target.id === 'fullSizeImage') {
+                $(this).hide();
+            }
+        });
     }
 
     // 全体の初期化を行う
