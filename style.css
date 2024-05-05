@@ -98,6 +98,7 @@ body {
     z-index: 1050;
     display: none; /* 初期状態では非表示 */
     max-width: none; /* 最大幅を画面幅に限定 */
+    cursor: pointer; /* カーソルをポインタに設定 */
 }
 
 #fullSizeImage {
@@ -110,38 +111,6 @@ body {
 .orange { background: orange; }
 .green { background: green; }
 .red { background: red; }
-
-.selectbox {
-    width: 100%; /* コンテナの幅に合わせて調整 */
-    display: inline-flex;
-    align-items: center;
-    position: relative;
-}
-
-.selectbox::after {
-    position: absolute;
-    right: 15px;
-    width: 15px;
-    height: 12px;
-    top: 30%;
-    background-color: #535353;
-    clip-path: polygon(0 0, 100% 0, 50% 100%);
-    content: '';
-    pointer-events: none;
-}
-
-.selectbox select {
-    appearance: none;
-    min-width: 230px;
-    height: 2.8em;
-    padding: .4em calc(.8em + 30px) .4em .8em;
-    border: 1px solid #d0d0d0;
-    border-radius: 3px;
-    background-color: #fff;
-    color: #333333;
-    font-size: 1em;
-    cursor: pointer;
-}
 
 #dateFilter {
     width: 100%; /* コンテナの幅に合わせて調整 */
@@ -184,6 +153,7 @@ body {
     border: 5px solid #ffffff; /* 白いボーダー */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* ソフトな影を追加 */
     border-radius: 10px; /* 角を丸くする */
+    cursor: pointer;
 }
 
 #clickableImage img {
@@ -277,4 +247,37 @@ img.responsive-map {
         top: 26%;
     }
     
+}
+
+.input-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+}
+
+.calendar-icon {
+    position: absolute;
+    right: 10px;
+    top: 35%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.calendar-input {
+    width: 100%; /* コンテナの幅に合わせて調整 */
+    padding: 16px; /* デフォルトのパディング */
+    border: 2px solid #ccc; /* 境界線のスタイル */
+    border-radius: 5px; /* 角の丸み */
+    background-color: #fff; /* 背景色 */
+    font-size: 5vw; /* 基本フォントサイズ */
+    color: #333; /* テキストの色 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 影の追加 */
+    cursor: pointer; /* カーソルをポインタに設定 */
+    outline: none; /* アウトラインを消去 */
+    margin-bottom: 30px;
+    height: auto;
+    box-sizing: border-box; /* paddingとborderを幅に含める */
 }
