@@ -48,7 +48,7 @@ $(document).ready(function() {
     function fetchLocationsAndTimeSlots() {
         var range = 'locations!A1:C22';
         return $.ajax({
-            url: `https://asia-northeast1-test-p-420714.cloudfunctions.net/getSpreadSheet?range=${range}`,
+            url: `https://asia-northeast1-test-p-420714.cloudfunctions.net/function-1?range=${range}`,
             method: 'GET',
         }).then(function(response) {
             locationsTimeSlots = new Map();
@@ -62,9 +62,9 @@ $(document).ready(function() {
 
     // スプレッドシートからデータを取得して処理
     function fetchDataAndDisplay() {
-        var range = 'formData!B1:D400';
+        var range = 'formData!B1:C1000';
         return $.ajax({
-            url: `https://asia-northeast1-test-p-420714.cloudfunctions.net/getSpreadSheet?range=${range}`,
+            url: `https://asia-northeast1-test-p-420714.cloudfunctions.net/function-1?range=${range}`,
             method: 'GET',
         }).then(function(response) {
             processSpreadsheetData(response.values);
