@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-const ImageOverlay = () => {
+const ImageOverlay: React.FC = () => {
   const [showOverlay, setShowOverlay] = useState(false);
   const [imageSrc, setImageSrc] = useState('');
 
-  const handleImageClick = (src) => {
+  const handleImageClick = (src: string) => {
     setImageSrc(src);
     setShowOverlay(true);
   };

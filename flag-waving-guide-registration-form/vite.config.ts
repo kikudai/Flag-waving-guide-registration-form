@@ -1,11 +1,11 @@
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
+const base = '/flag-waving-guide-registration-form/';
+
 export default defineConfig({
-  base: '/flag-waving-guide-registration-form/',  // ここにプロジェクト名を設定
+  base,
   plugins: [
-    react(),
     viteStaticCopy({
       targets: [
         {
@@ -18,8 +18,16 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main: 'index.html',
+        main: './public/index.html',
       }
     }
+  },
+  server: {
+    host: true,
+    port: 5173,
+    open: true,
+    fs: {
+      strict: false,
+    },
   }
 });

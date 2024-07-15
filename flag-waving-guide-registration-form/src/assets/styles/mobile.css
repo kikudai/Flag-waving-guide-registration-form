@@ -1,0 +1,28 @@
+/* src/assets/styles/mobile.css */
+.data-location {
+    font-size: 4vw; /* デバイス幅に応じて調整 */
+    width: 75%; /* 幅を調整して左寄せの余白を増やす */
+    margin-right: 5%; /* 右に余白を追加 */
+}
+
+.data-time-slot,
+.data-date,
+.data-count {
+    font-size: 2.5vw; /* デバイス幅に応じて調整 */
+}
+
+.data-count {
+    font-size: 5vw; /* 数字が目立つように大きめに設定 */
+    padding: 8px 0px 8px 30px; /* タップしやすいようにパディングを増やす */
+    bottom: 3px; /* 数字を下に移動 */
+}
+
+.indicator {
+    height: 8vw; /* デバイス幅に応じて調整 */
+    width: 1.5vw; /* デバイス幅に応じて調整 */
+    margin-right: 3vw; /* デバイス幅に応じて調整 */
+}
+
+.unit {
+    font-size: 3vw; /* デバイス幅に応じて調整 */
+}

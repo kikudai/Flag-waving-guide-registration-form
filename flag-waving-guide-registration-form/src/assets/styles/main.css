@@ -1,3 +1,4 @@
+/* src/assets/styles/main.css */
 body {
     background-color: #f5f5f5; /* 非常に薄いグレーの背景色 */
     color: #333; /* テキスト色を少し暗めに設定 */
@@ -7,14 +8,14 @@ body {
 }
 
 .data-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .data-list h2 {
-  font-size: 1.2em;
-  margin-bottom: 0.5em;
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
 }
 
 .data-item {
@@ -31,26 +32,20 @@ body {
 }
 
 .data-item:hover {
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
 .data-location {
-  font-weight: bold;
-  font-size: 4vw; /* デバイス幅に応じて調整 */
-  width: 75%; /* 幅を調整して左寄せの余白を増やす */
-  margin-right: 5%; /* 右に余白を追加 */
+    font-weight: bold;
 }
 
 .time-slot-area {
     align-items: center;
-    margin-right: 5%; /* 右に余白を追加 */
 }
 
 .data-time-slot,
 .data-date,
 .data-count {
-    margin-right: 10px;
-    font-size: 2.5vw; /* デバイス幅に応じて調整 */
     color: gray;
 }
 
@@ -62,8 +57,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start; /* カウントエリアを右寄せに */
-    width: 20%;
-    padding-left: 20px; /* 罫線とテキストの間にスペースを追加 */
     border-left: 2px solid #ccc; /* 縦罫線を追加 */
 }
 
@@ -71,20 +64,14 @@ body {
     font-weight: bold;
     color: #333;
     position: relative; /* 相対位置 */
-    font-size: 5vw; /* 数字が目立つように大きめに設定 */
-    padding: 8px 0px 8px 30px; /* タップしやすいようにパディングを増やす */
-    bottom: 3px; /* 数字を下に移動 */
 }
 
 .indicator {
     border-radius: 5px;
-    height: 8vw; /* デバイス幅に応じて調整 */
-    width: 1.5vw; /* デバイス幅に応じて調整 */
-    margin-right: 3vw; /* デバイス幅に応じて調整 */
 }
 
 .unit {
-    font-size: 3vw; /* デバイス幅に応じて調整 */
+    color: #333;
 }
 
 #imageOverlay {
@@ -118,7 +105,6 @@ body {
     border: 2px solid #ccc; /* 境界線のスタイル */
     border-radius: 5px; /* 角の丸み */
     background-color: #fff; /* 背景色 */
-    font-size: 5vw; /* 基本フォントサイズ */
     color: #333; /* テキストの色 */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 影の追加 */
     cursor: pointer; /* カーソルをポインタに設定 */
@@ -156,9 +142,6 @@ body {
     cursor: pointer;
 }
 
-#clickableImage img {
-}
-
 .overlay {
     position: absolute;
     top: 0;
@@ -186,67 +169,6 @@ body {
 img.responsive-map {
     width: 100%; /* 画像の幅を画面幅に合わせて調整 */
     height: auto; /* 高さを自動で調整し、アスペクト比を維持 */
-}
-
-/* 既存のスマートフォン用のスタイルに追加 */
-@media (min-width: 768px) {
-    body {
-        padding: 40px; /* PCでは内側の余白を広く取る */
-    }
-
-    .data-list h2 {
-        font-size: 1.5em; /* PCでは見出しを大きくする */
-    }
-
-    .data-item {
-        padding: 15px; /* PCでのタップしやすさを考慮し余白を広げる */
-        margin-bottom: 15px; /* アイテム間の距離を広げる */
-    }
-
-    .data-location, .data-time-slot, .data-date, .data-count {
-        font-size: 1em; /* 文字サイズを固定値で指定 */
-    }
-
-    .data-count {
-        font-size: 1.5em; /* 数字のサイズを大きくして目立たせる */
-        padding: 12px 0px 12px 40px; /* タップしやすいようにパディングを増やす */
-    }
-
-    .data-count-area {
-        width: 25%; /* カウントエリアの幅を調整 */
-        height: 30px; /* カウントエリアの高さを固定値に */
-    }
-
-    .indicator {
-        height: 40px; /* インジケータの高さを固定値に */
-        width: 10px; /* インジケータの幅を固定値に */
-    }
-
-    .unit {
-        font-size: 1em; /* ユニットのフォントサイズを固定値に */
-    }
-
-    .selectbox select {
-        height: 3.2em; /* セレクトボックスの高さを調整 */
-        font-size: 1.2em; /* セレクトボックスのフォントサイズを調整 */
-    }
-
-    #dateFilter {
-        font-size: 1em; /* フォントサイズを固定値に調整 */
-    }
-
-    .image-container img {
-        border: 10px solid #ffffff; /* ボーダーの幅を調整 */
-    }
-
-    .overlay-icon {
-        font-size: 60px; /* オーバーレイのアイコンサイズを大きくする */
-    }
-
-    .selectbox::after {
-        top: 26%;
-    }
-    
 }
 
 .input-wrapper {

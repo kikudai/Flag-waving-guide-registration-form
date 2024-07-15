@@ -1,7 +1,11 @@
 import React, { useEffect } from 'react';
 import flatpickr from 'flatpickr';
 
-const DatePicker = ({ onDateChange }) => {
+interface DatePickerProps {
+  onDateChange: (dateStr: string) => void;
+}
+
+const DatePicker: React.FC<DatePickerProps> = ({ onDateChange }) => {
   useEffect(() => {
     flatpickr("#dateFilter", {
       dateFormat: "Y/m/d",

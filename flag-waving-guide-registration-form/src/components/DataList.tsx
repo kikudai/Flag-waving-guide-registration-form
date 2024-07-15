@@ -1,9 +1,18 @@
 import React from 'react';
 
-const DataList = ({ data, selectedDate, locationsTimeSlots, locationsFormUrl, columnIndexes }) => {
+// 型定義
+interface DataListProps {
+  data: string[][];
+  selectedDate: string;
+  locationsTimeSlots: Map<string, string>;
+  locationsFormUrl: Map<string, string>;
+  columnIndexes: { [key: string]: number };
+}
+
+const DataList: React.FC<DataListProps> = ({ data, selectedDate, locationsTimeSlots, locationsFormUrl, columnIndexes }) => {
   const prepareGroupedData = () => {
     const locationIndex = columnIndexes['旗振り指導場所'];
-    const groupedData = {};
+    const groupedData: { [key: string]: { [key: string]: string[][] } } = {};
     locationsTimeSlots.forEach((timeSlot, location) => {
       if (!groupedData[location]) {
         groupedData[location] = {};
@@ -12,7 +21,7 @@ const DataList = ({ data, selectedDate, locationsTimeSlots, locationsFormUrl, co
     });
     data.forEach(row => {
       const location = row[locationIndex];
-      groupedData[location][locationsTimeSlots.get(location)].push(row);
+      groupedData[location][locationsTimeSlots.get(location)!].push(row);
     });
     return groupedData;
   };
@@ -25,7 +34,7 @@ const DataList = ({ data, selectedDate, locationsTimeSlots, locationsFormUrl, co
         const indicatorColors = ['orange', 'green', 'red'];
         const indicatorColor = indicatorColors[locationIndex % indicatorColors.length];
         return (
-          <a href={locationsFormUrl.get(location)} target="_blank" className="data-item-link" key={location}>
+          <a href={locationsFormUrl.get(location)} target="_blank" className="data-item-link" key={location} rel="noopener noreferrer">
             <div className="data-item">
               <div className={`indicator ${indicatorColor}`} />
               <div className="data-location">{location}</div>
