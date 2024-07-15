@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import DatePicker from './components/DatePicker';
 import DataList from './components/DataList';
 import ImageOverlay from './components/ImageOverlay';
-import './assets/styles/main.css';
-import './assets/styles/mobile.css';
 import './assets/styles/desktop.css';
 
 // 型定義
