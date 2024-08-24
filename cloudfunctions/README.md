@@ -31,37 +31,3 @@ python ../bin/local_proxy_server.py flag-waving-guide-registration-form
 
 ## ブラウザ実行
 http://localhost:5000/flag-waving-guide-registration-form/index.html
-
-
-```
-npm create vite@latest flag-waving-guide-registration-form -- --template react
-cd flag-waving-guide-registration-form
-npm install
-
-
-
-npm create vite@latest my-react-app -- --template react-ts
-```
-
-
-```
-npm install firebase-tools --save-dev
-npx firebase init functions
-```
-
-## React Vita 起動・ビルド・プレビュー
-
-### React Vita ローカル開発
-```bash
-npm run dev
-```
-
-### React Vita docs 配下
-```bash
-npm run build
-```
-
-### React Vita docs 確認
-```bash
-npm run preview
-```

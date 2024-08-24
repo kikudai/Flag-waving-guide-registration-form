@@ -1,0 +1,59 @@
+/* 既存のスマートフォン用のスタイルに追加 */
+@media (min-width: 768px) {
+  body {
+    padding: 40px; /* PCでは内側の余白を広く取る */
+  }
+
+  .data-list h2 {
+    font-size: 1.5em; /* PCでは見出しを大きくする */
+  }
+
+  .data-item {
+    padding: 15px; /* PCでのタップしやすさを考慮し余白を広げる */
+    margin-bottom: 15px; /* アイテム間の距離を広げる */
+  }
+
+  .data-location, .data-time-slot, .data-date, .data-count {
+    font-size: 1em; /* 文字サイズを固定値で指定 */
+  }
+
+  .data-count {
+    font-size: 1.5em; /* 数字のサイズを大きくして目立たせる */
+    padding: 12px 0px 12px 40px; /* タップしやすいようにパディングを増やす */
+  }
+
+  .data-count-area {
+    width: 25%; /* カウントエリアの幅を調整 */
+    height: 30px; /* カウントエリアの高さを固定値に */
+  }
+
+  .indicator {
+    height: 40px; /* インジケータの高さを固定値に */
+    width: 10px; /* インジケータの幅を固定値に */
+  }
+
+  .unit {
+    font-size: 1em; /* ユニットのフォントサイズを固定値に */
+  }
+
+  .selectbox select {
+    height: 3.2em; /* セレクトボックスの高さを調整 */
+    font-size: 1.2em; /* セレクトボックスのフォントサイズを調整 */
+  }
+
+  #dateFilter {
+    font-size: 1em; /* フォントサイズを固定値に調整 */
+  }
+
+  .image-container img {
+    border: 10px solid #ffffff; /* ボーダーの幅を調整 */
+  }
+
+  .overlay-icon {
+    font-size: 60px; /* オーバーレイのアイコンサイズを大きくする */
+  }
+
+  .selectbox::after {
+    top: 26%;
+  }
+}
