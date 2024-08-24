@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
-import { resolve } from "path";
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -10,22 +9,22 @@ const base = '/flag-waving-guide-registration-form/';
 export default defineConfig({
   base,
   root: 'src',
-  publicDir: '../public',
+  publicDir: '../public', // 公開ディレクトリの設定
   plugins: [
     viteStaticCopy({
       targets: [
         {
-          src: resolve(__dirname, "public/*"),
-          dest: resolve(__dirname, "../docs2"),
+          src: 'public/*', // 公開ディレクトリ内のファイルをコピー
+          dest: '../docs' // ルートにコピー
         }
       ]
     })
   ],
   build: {
-    outDir: '../../docs2',
+    outDir: '../../docs', // ビルド出力先
     rollupOptions: {
       input: {
-        main: 'src/index.html',
+        main: 'src/index.html', // エントリーポイント
       },
     }
   },
